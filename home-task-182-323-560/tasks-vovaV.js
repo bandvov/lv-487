@@ -7,7 +7,7 @@ tasks.set(
     `Given the integer n, the integers a1,…, an. Find
     the number and sum of those members of a given sequence that
     are divisible by 5 and not divisible by 7. Enter integers  `,
-    args => findData(...args)
+     findData
   )
 );
 
@@ -15,7 +15,7 @@ tasks.set(
   "323",
   new Task(
     `Get all natural  numbers smaller than n and relatively simple to them. Enter n`,
-    (args) => findPrime(...args)
+    findPrime
   )
 );
 
@@ -27,7 +27,7 @@ tasks.set(
      divisors of the other, except this number itself.
       Find all pairs of friendly numbers that range from
        200 to 300. Enter x,y`,
-    (args) => findRange(...args)
+     findRange
   )
 );
 
