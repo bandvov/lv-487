@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // =====================================  task 182  =====================
+
+      class VovanClass {
+        constructor() {}
+        findData() {
+          let i,
+            summ = 0,
+            numbers = [];
+          for ( i = 0; i < arguments.length; i++) {
+            if (arguments[i] % 5 === 0 && arguments[i] % 7 !== 0) {
+              summ += arguments[i];
+              numbers.push(arguments[i]);
+            }
+          }
+          return {
+            summ,
+            quantity: numbers.length
+          };
+        }
+
+        // =====================================  323  ========================
+        findPrime(n) {
+          const isPrime = n => {
+            if (n === 2) {
+              return true;
+            }
+            if (!Number.isInteger(n) || n < 2 || !(n % 2)) {
+              return false;
+            }
+            for (let i = 3; i < n; i++) {
+              if (n % i === 0) {
+                return false;
+              }
+            }
+            return true;
+          };
+
+          for (let i = 0; i < 11; i++) {
+            if (isPrime(i)) {
+              console.log(i);
+            }
+          }
+        }
+        // ===================================================  560  =====================
+
+        findRange(x, y) {
+          const findDeviders = n => {
+            if (typeof n !== "number" || n === "") {
+              throw new Error("argument must be an integer");
+            }
+            let deviders = [];
+            for (let i = 0; i < n; i++) {
+              if (n % i === 0) {
+                deviders.push(i);
+              }
+            }
+            return deviders;
+          };
+          let obj = {};
+          let sumObj = {};
+          let resultObj = {};
+          for (let i = x; i <= y; i++) {
+            obj[i] = findDeviders(i);
+          }
+          for (let key in obj) {
+            let res = 0;
+            obj[key].forEach(item => {
+              res += item;
+            });
+            sumObj[key] = res;
+          }
+          for (let i = 200; i <= 300; i++) {
+            for (let key in sumObj) {
+              if (i === sumObj[key]) {
+                resultObj[key] = sumObj[key];
+              }
+            }
+          }
+          console.log(obj);
+          console.log("sumObj", sumObj);
+          console.log("resultObj", resultObj);
+          
+          return obj;
+        }
+      }
+
+      // =================================================
+      class MethodFactory {
+        constructor() {
+          this.classType = "";
+        }
+        createMethods(type) {
+          switch (type) {
+            case 182:
+            case 323:
+            case 560:
+              this.classType = VovanClass;
+              break;
+          }
+          return new this.classType();
+        }
+      }
+      const getMethods = new MethodFactory();
+      const res = getMethods.createMethods(323);
+
+      // test result
+      console.log(res.findData(3, 4, 5, 15, 30));
+      res.findPrime(22);
+      res.findRange(200, 300);     
+      
+    
+console.log(event.key);
+
+    </script>
+  </body>
+</html>
