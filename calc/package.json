@@ -9,7 +9,7 @@
   "author": "bandvov",
   "license": "ISC",
   "dependencies": {
-    "lint": "^0.7.0",
+    "lint": "^0.8.8",
     "node": "^13.7.0"
   },
   "devDependencies": {
